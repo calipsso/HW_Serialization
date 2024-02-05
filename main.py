@@ -64,4 +64,3 @@ print(f"zo suboru {nazov_suboru}")
 
 
 
-
