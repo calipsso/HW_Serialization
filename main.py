@@ -32,6 +32,7 @@ class Capitals():
 
 
 
+
 capitals = Capitals()
 
 #finding_data = capitals.finding_data(input("hladaj:"))
