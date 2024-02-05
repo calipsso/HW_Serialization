@@ -27,10 +27,11 @@ class Capitals():
         with open(nazov, "w")as file:
             file.write(json.dumps(self.country_dict))
         return nazov
-
-
-
-
+    def fron_json_file(self, nazov):
+        with open(nazov, "r") as file:
+            loaded_file = json.load(file)
+            self.country_dict = loaded_file
+            return self.country_dict
 
 
 capitals = Capitals()
@@ -47,6 +48,10 @@ capitals = Capitals()
 #print("------")
 print(capitals.to_json(capitals.country_dict))
 print(capitals.to_json_file("to_file.json"))
+print("---------")
+nazov_suboru = capitals.fron_json_file("to_file.json")
+print(f"zo suboru {nazov_suboru}")
+
 
 
 
