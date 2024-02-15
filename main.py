@@ -1,18 +1,33 @@
-class Student: #Trieda
-    def __init__(self, name, age): #konstruktor
-        self.name = name #atribut / objekt
+class Person:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
         self.age = age
+    def getInfo(self):
+        return f"Person: {self.first_name}, {self.last_name}, {self.age}"
+    def getHi(self, msg):
+        personinf = self.getInfo()
+        return f"{personinf} \n {msg} I am {self.first_name}"
 
-    def show_info(self): #Metoda
-        return f"{self.name}, {self.age}"
-    def show_msg(self, msg_text): #Metoda
-        return f"{self.name}, {msg_text}"
+class Student(Person):
+    def __init__(self, first_name, last_name, age, score):
+        super() .__init__(first_name, last_name, age)
+        self.score = score
+    def isSuccesfull(self):
+        if self.score >= 75:
+            return True
+        else:
+            return False
 
-student = Student("kamil", 20) # instancia = zabezpecuje pristup ku triede Student
-student1 = Student("Peter", 45)
 
-print(student.show_info()) #Vypis
-print(student.show_msg("Vitaj"))
-print(student1.show_info())
-print(student1.show_msg("Vitaj"))
+person = Person("Kamil", "Petpaj", 30)
+person1 = Person("Mikulja", "Onanov", 89)
+student =Student("Kamil", "Peteraj", 30, 89)
+
+print(person.getInfo())
+print(student.getInfo())
+print(student.getHi("Hi"))
+print(f"Is {student.first_name} succesfull student? {student.isSuccesfull()}")
+
+
 
