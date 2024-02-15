@@ -3,11 +3,16 @@ class Student: #Trieda
         self.name = name #atribut / objekt
         self.age = age
 
-    def __str__(self):
-        return f"name = {self.name}, age = {self.age}"
+    def show_info(self): #Metoda
+        return f"{self.name}, {self.age}"
+    def show_msg(self, msg_text): #Metoda
+        return f"{self.name}, {msg_text}"
 
 student = Student("kamil", 20) # instancia = zabezpecuje pristup ku triede Student
-student1 = Student("peter", 45)
+student1 = Student("Peter", 45)
 
-print(student)
-print(student1)
+print(student.show_info()) #Vypis
+print(student.show_msg("Vitaj"))
+print(student1.show_info())
+print(student1.show_msg("Vitaj"))
+
