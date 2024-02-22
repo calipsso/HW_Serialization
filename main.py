@@ -1,45 +1,19 @@
-class Person:
-    def __init__(self, firstName, lastName, age):
-        self.firstName = firstName
-        self.lastName = lastName
-        self.age = age
+class UserPlayer:
+    def __init__(self, name):
+        self.name = name
+        self.__wallet = 100
+    def updateWallet(self, coins):
+        self.__wallet = self.__wallet + coins
+    def showWallet(self):
+        print(f"U have{self.__wallet} coins now")
 
-    def getInfo(self):
-        return f"{self.firstName}, {self.lastName}, {self.age}"
-    def getHi(self, msg):
-        return f"{msg}, I am {self.lastName}"
-
-class Employee (Person):
-    def __init__(self, firstName, lastName, age, jobTitle, salary, seniority):
-        super().__init__(firstName, lastName, age)
-        self.jobTitle = jobTitle
-        self.salary = salary
-        self.seniority = seniority
-
-    def getInfo(self):
-        return f"{self.firstName}, {self.lastName}, {self.age}, {self.jobTitle}, {self.salary}, {self.seniority}"
-    def getSickLeavePerc(self, num):
-        if self.seniority > num:
-            return True
-        else:
-            return False
-
-person = Person("kamil", "Peteraj", 36)
-emlpoyee = Employee("Erik", "Kalinak", 19, "PR", 1956, 7)
-
-print(emlpoyee.getHi("Hi"))
-print(emlpoyee.getInfo())
-print(emlpoyee.getSickLeavePerc(2))
+class WalletFunctor:
+    def __init__(self, startCoins=100):
+        self.__startCoins = startCoins
+    #def __call__(self, 0):
 
 
-
-
-
-
-
-
-
-
-
-
+user1 = UserPlayer("Joe")
+user1.updateWallet(50)
+user1.showWallet()
 
