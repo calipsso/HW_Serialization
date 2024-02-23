@@ -1,19 +1,39 @@
-class UserPlayer:
-    def __init__(self, name):
-        self.name = name
-        self.__wallet = 100
-    def updateWallet(self, coins):
-        self.__wallet = self.__wallet + coins
-    def showWallet(self):
-        print(f"U have{self.__wallet} coins now")
+import threading
+import random
+import time
 
-class WalletFunctor:
-    def __init__(self, startCoins=100):
-        self.__startCoins = startCoins
-    #def __call__(self, 0):
+def randomUserNumbers(a, b):
+    values = []
+    for i in range(10):
+        values.append(random.randint(a, b))
+    return values
+start_time = time.time()
+def value_max(zoznam):
+    max_num = max(zoznam)
+    print(f"najvacsie cislo je {max_num}")
+
+def value_min(zoznam):
+    min_num= min(zoznam)
+    print(f"najmensie cislo je {min_num}")
 
 
-user1 = UserPlayer("Joe")
-user1.updateWallet(50)
-user1.showWallet()
+zoznam = randomUserNumbers(1,999)
+
+thread1 = threading.Thread(target=value_max, args=(zoznam,))
+thread2 = threading.Thread(target=value_min, args=(zoznam,))
+
+thread1.start()
+thread2.start()
+
+thread1.join()
+thread2.join()
+trvanie = time.time() - start_time
+
+
+print(zoznam)
+print(trvanie)
+#print(value_min(zoznam))
+#print(value_max(zoznam))
+
+
 
