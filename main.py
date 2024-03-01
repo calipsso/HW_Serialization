@@ -28,11 +28,13 @@ class FunctionsElements(ElementsStorage):
             sumZoznam += num
         return sumZoznam
 
-
-    def arithmElements(self):
+    def lenStorage(self):
         d = len(self.storage)
-        c =self.sumElements() // d
-        return c
+        return d
+
+    def arithmElements(self, a, b):
+        delenec = b//a
+        return delenec
 
 
 
@@ -40,9 +42,9 @@ elements = FunctionsElements()
 #elements = ElementsStorage()
 
 
-elements.randomChoiceInt(10, 99) #random
-#elements.userChoiceInt() # user
+#elements.randomChoiceInt(10, 99) #random
+elements.userChoiceInt() # user
 
 #print(elements.storage)
 print(elements.sumElements())
-print(elements.arithmElements())
+print(elements.arithmElements(elements.lenStorage(), elements.sumElements()))
